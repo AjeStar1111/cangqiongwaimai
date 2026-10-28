@@ -6,12 +6,13 @@
         select * from employee
         <where>
             <if test="name !=null and name !=''">
-        and name like concat('%',#{name},'name')
+        and name like concat('%',#{name},'%')
             </if>
         </where>
                  order by create_time desc
     </select>
     <update id="update" parameterType="Employee">
+        update employee
         <set>
             <if test="name != null">name = #{name},</if>
             <if test="username != null">username = #{username},</if>
