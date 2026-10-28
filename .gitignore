@@ -4,3 +4,6 @@
 *.class
 *Test.java
 **/test/
+
+# 前端静态资源中的 sourcemap，体积大且运行时不需要
+*.map
