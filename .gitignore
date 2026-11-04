@@ -7,3 +7,7 @@
 
 # 前端静态资源中的 sourcemap，体积大且运行时不需要
 *.map
+# AI 过程产物不入库
+.playwright-mcp/
+hs_err_pid*.log
+sky-server/src/main/resources/application-dev.yml
