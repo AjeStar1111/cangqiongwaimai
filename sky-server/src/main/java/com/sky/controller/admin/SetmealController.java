@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @Slf4j
 @Api(tags="套餐相关文件接口")
@@ -41,7 +43,14 @@ public class SetmealController {
     @GetMapping("/page")
     @ApiOperation("套餐分页查询")
     public Result<PageResult> page(SetmealPageQueryDTO setmealPageQueryDTO){
-        PageResult pageResult=SetmealService.pageQuery(setmealPageQueryDTO);
+        PageResult pageResult = setmealService.pageQuery(setmealPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+    @DeleteMapping
+    @ApiOperation("批量删除套餐")
+    public Result delete(@RequestParam List<Long> ids){
+        setmealService.deleteBatch(ids);
+        return Result.success();
     }
 }
